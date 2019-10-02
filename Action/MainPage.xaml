@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="Action.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Action"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+
+    <Grid Margin="10,0,0,0">
+        <TextBlock HorizontalAlignment="Left" Margin="412,51,0,0" Text="Gestion du Portefeuille" TextWrapping="Wrap" VerticalAlignment="Top" Width="818" FontSize="78"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,265,0,0" Text="Liste des Tradders" TextWrapping="Wrap" VerticalAlignment="Top" Width="469" FontSize="40"/>
+        <ListView Name="lvTraders" Grid.Column="0" SelectionChanged="LvTraders_SelectionChanged" Margin="0,323,1186,311">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="50" Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding}" Width="100"></TextBlock>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding}" Width="100"></TextBlock>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding}" Width="100"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock HorizontalAlignment="Left" Margin="412,265,0,0" Text="Liste des actions" TextWrapping="Wrap" VerticalAlignment="Top" Width="469" FontSize="40"/>
+        <TextBlock HorizontalAlignment="Left" Margin="859,265,0,0" Text="Achat" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" FontSize="40"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1184,265,0,0" Text="Vente" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" FontSize="40" Height="53"/>
+        <ListView Name="lvActionAchetee" Grid.Column="0" SelectionChanged="LvActionAchetee_SelectionChanged" Margin="319,323,697,311">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="50" Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CodeAction}" Width="100"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding NomAction}" Width="100"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ValeurAction}" Width="100"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Quantite}" Width="100"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding PrixAchat}" Width="100"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Name="lvActionReelle" Grid.Column="0" SelectionChanged="LvActionReelle_SelectionChanged" Margin="711,323,340,230">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="50" Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="" Width="100"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="" Width="100"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="" Width="100"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Orientation="Vertical" Margin="1150,323,0,11">
+            <TextBlock Text="Nom de l'action" FontSize="28"/>
+            <TextBox x:Name="txtNomAction" IsEnabled="False" Height="49"/>
+            <TextBlock Text="Valeur de l'action" FontSize="28"/>
+            <TextBox x:Name="txtValeurAction" IsEnabled="False" Height="50"/>
+            <TextBlock Text="Prix Achat" FontSize="28"/>
+            <TextBox x:Name="txtPrixAchat" IsEnabled="False" Height="45"/>
+            <TextBlock Text="Quantité achetée" FontSize="28"/>
+            <TextBox x:Name="txtQuantitéeAchetee" IsEnabled="False" Height="46"/>
+            <TextBlock Text="Quantité vendue"  FontSize="28"/>
+            <TextBox x:Name="txtQuantitéeVendue" Height="46" Width="342"/>
+            <Button Name="Vendre" Content="Vendre" Width="334" VerticalAlignment="Bottom" Click="Vendre_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="636,805,345,32">
+            <TextBlock Text="Nom de l'action"></TextBlock>
+            <TextBox Name="txtNomActionNoir" Background="Black"></TextBox>
+            <TextBlock Text="Valeur de l'action"></TextBlock>
+            <TextBox Name="txtValeurActionNoir" Background="Black"></TextBox>
+            <Button Name="btnAchat" Click="BtnAchat_Click" Content="Acheter" Width="200" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <TextBox Name="txtMontantP" HorizontalAlignment="Left" Margin="214,778,0,0" Text="Montant du Portefeuille" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="214,759,0,0" Text="Montant du Portefeuille" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="166"/>
+
+    </Grid>
+</Page>
